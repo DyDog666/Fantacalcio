@@ -1,0 +1,65 @@
+@startuml
+
+rectangle "Robustness diagram" {
+
+actor "Fantaallenatore" as A1
+
+entity "piattaforma" as I1
+
+boundary "login" as I2
+
+control "validazione dei dati" as C1
+
+entity "formazione" as I3
+
+A1-down->I2 :"username e password"
+
+boundary "inserimento formazione" as I5
+
+I2->C1
+
+C1->I1
+
+entity "visualizzazione \nstatistiche" as E2
+
+control "seleziona operazione" as C5
+
+C5-down->I5
+
+control "caricamento lista giocatori" as C6
+
+I5-down->C6
+
+I1-right->C5
+
+boundary "inserimento giocatori" as I4
+
+C6-down->I4
+
+control "controllo validità formazione" as C7
+
+I4-down->C7
+
+C7-down->I3
+
+control "calcolo del punteggio" as C3
+
+I3-down->C3
+
+entity "classifica" as E3
+
+C3-down->E3
+
+control "seleziona giocatore" as C4
+
+C5->C4
+
+C4-down->E2
+
+C5->E3
+
+C5-down->I3
+
+}
+
+@enduml
