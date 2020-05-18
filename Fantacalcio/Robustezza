@@ -40,9 +40,11 @@ C5->C4
 
 C4-down->E2
 
-C5->E3
+entity "visualizza formazioni" as C9
 
-C5-down->I3
+C5-down->C9
+
+C5->E3
 
 }
 
