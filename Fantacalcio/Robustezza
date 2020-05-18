@@ -4,9 +4,9 @@ rectangle "Robustness diagram" {
 
 actor "Fantaallenatore" as A1
 
-boundary "piattaforma" as C8
+boundary "menù iniziale" as C8
 
-A1-down->C8:"Accesso alla piattaforma"
+A1-down->C8:"login"
 
 entity "formazione" as I3
 
@@ -14,13 +14,17 @@ boundary "inserimento formazione" as I5
 
 entity "visualizzazione \nstatistiche" as E2
 
-control "seleziona operazione" as C5
+control "validità operazione" as C5
 
 C8->C5
 
 C5-down->I5
 
+entity "rosa giocatori" as E4
+
 control "controllo validità formazione" as C7
+
+E4-left->C7
 
 I5-down->C7
 
@@ -39,6 +43,10 @@ control "seleziona giocatore" as C4
 C5->C4
 
 C4-down->E2
+
+entity "lega scelta" as E5
+
+E5-down->C4
 
 entity "visualizza formazioni" as C9
 
